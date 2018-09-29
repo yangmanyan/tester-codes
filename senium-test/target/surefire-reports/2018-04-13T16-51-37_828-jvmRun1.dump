@@ -1,0 +1,16 @@
+# Created on 2018-04-13T16:51:39.618
+org.testng.TestNGException: 
+Cannot load class from file: org.uncommons.reportng.HTMLReporter
+	at org.testng.internal.ClassHelper.fileToClass(ClassHelper.java:551)
+	at org.testng.TestNG.configure(TestNG.java:1416)
+	at org.testng.TestNG.configure(TestNG.java:1595)
+	at org.apache.maven.surefire.testng.conf.TestNGMapConfigurator.configure(TestNGMapConfigurator.java:57)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:279)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:379)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:340)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:413)
+
+

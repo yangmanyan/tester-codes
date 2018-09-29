@@ -1,0 +1,12 @@
+package com.qa;
+
+public class pythonUse {
+
+	public static void main(String[] args) throws Exception {
+		String count = "gKFdWsh6HZvltNhNQXaCaz+zR5PHvG0xyTU2WMrIppjIVx6sOmdWfvvbK7ZSVkzbvps44tA2xizNrmKQCcK5I1wREExlrvtqJAca7BXl9+4hg0/b7UHdNHto8+iEyLlZGZGQWM3B7QZcNfzOkvfXwgasRvwhe38zSZqb+QNFAEc7XXhXe9VpfKzJ2/7SN8nLj73LsRi153y7Bv8/inT8XbWp9f6YgSxFsuiy+JKczq9aWPhZ8iMA/IcFK3uTFe1f";
+		String commKey = String.valueOf(System.currentTimeMillis())+ String.valueOf(System.currentTimeMillis()) + String.valueOf(System.currentTimeMillis()).substring(0, 6);
+		System.out.print(AES.Decrypt(count,commKey));
+
+	}
+
+}

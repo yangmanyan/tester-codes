@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="org.apache.jmeter.protocol.java.sampler.AbstractJavaSamplerClient"/>
+<fullyQualifiedTypeName name="org.apache.jmeter.config.Arguments"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+<fullyQualifiedTypeName name="org.apache.http.HttpResponse"/>
+<fullyQualifiedTypeName name="org.testng.TestNG"/>
+<fullyQualifiedTypeName name="org.testng.xml.XmlSuite"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="javax.xml.parsers.ParserConfigurationException"/>
+<fullyQualifiedTypeName name="org.xml.sax.SAXException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="org.testng.ITestNGListener"/>
+<fullyQualifiedTypeName name="org.testng.TestListenerAdapter"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.chrome.ChromeDriver"/>
+<fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+<fullyQualifiedTypeName name="com.qa.utils.RSACode"/>
+<fullyQualifiedTypeName name="org.apache.log4j.BasicConfigurator"/>
+<fullyQualifiedTypeName name="java.io.StringWriter"/>
+<fullyQualifiedTypeName name="javax.crypto.spec.SecretKeySpec"/>
+<fullyQualifiedTypeName name="javax.crypto.Cipher"/>
+<fullyQualifiedTypeName name="java.util.Base64"/>
+<fullyQualifiedTypeName name="com.qa.utils.Base64Util"/>
+<fullyQualifiedTypeName name="net.sf.json.JSONObject"/>
+<fullyQualifiedTypeName name="org.apache.commons.codec.binary.Base64"/>
+</qualifiedTypeNameHistroy>

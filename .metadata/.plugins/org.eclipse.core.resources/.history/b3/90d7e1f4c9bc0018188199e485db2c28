@@ -1,0 +1,32 @@
+package com.qa.utils;
+
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
+import org.java_websocket.WebSocket;
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.drafts.Draft_6455;
+import org.java_websocket.handshake.ServerHandshake;
+ 
+//import com.cn.service.impl.SearchPersonServiceImpl;
+ 
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Date;
+
+import com.qa.utils.AES;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+ 
+public class pythonUse {
+
+	public static void main(String[] args) {
+		//for(int i = 0; i < args.length; i++){
+			String re = RSACode.encryptBASE64(RSACode.encryptByPublicKey(args[0],args[1]));
+			
+        //}
+
+	}
+
+}

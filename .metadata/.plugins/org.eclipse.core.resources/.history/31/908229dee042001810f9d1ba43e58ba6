@@ -1,0 +1,31 @@
+package com.qa.test;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.testng.annotations.AfterTest;
+
+public class seleniumTestDemo {
+   WebDriver wb;
+  @Test
+  public void f() {
+	  System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe"); 
+	  wb = new ChromeDriver();
+	  wb.get("http://caipiao.1768.com");
+	  //wb.findElement(By.id("haha")).click();
+	  System.out.println("The testing page title is: " + wb.getTitle()); 
+  }
+  
+  @BeforeTest
+  public void beforeTest() {
+	  	 
+  } 
+
+  @AfterTest
+  public void afterTest() {
+	  wb.quit();
+  }
+
+}

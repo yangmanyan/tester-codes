@@ -1,0 +1,297 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>apiGui.test</groupId>
+  <artifactId>api-gui-test</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	  <xmlFileName>testng.xml</xmlFileName>
+  </properties>
+  
+  <build>
+	<plugins>
+		<!--<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>2.21.0</version>
+			<configuration>
+			<suiteXmlFiles>
+			<suiteXmlFile>
+				src/test/resources/${xmlFileName}
+			</suiteXmlFile>
+			</suiteXmlFiles>
+			</configuration>
+		</plugin>-->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>2.21.0</version>
+			<configuration>
+				<suiteXmlFiles>
+					<suiteXmlFile>
+						src/main/resources/${xmlFileName}
+					</suiteXmlFile>
+				</suiteXmlFiles>
+				<properties>
+					<property>
+					<name>usedefaultlisteners</name>
+					<value>false</value>
+					</property>
+					
+					<property>
+					<name>listener</name>
+					<value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+					</property>
+				</properties>
+				<workingDirectory>target/</workingDirectory>
+				<forkMode>always</forkMode>
+				<!-- 解决报告中中文乱码 -->
+				<argLine>-Dfile.encoding=UTF-8</argLine>
+			</configuration>
+		</plugin>
+		
+		<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.1.0</version>
+        <!-- <configuration>
+        	<transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                   <manifestEntries>
+                            <Main-Class>com.test.api.interfaceGuiTest</Main-Class>            
+                   </manifestEntries>
+                 
+                 <mainClass>com.test.api.interfaceGuiTest</mainClass>
+                 <mainClass>org.testng.TestNG</mainClass>
+                 </transformer>
+            </transformers>
+        </configuration> -->
+        <executions>
+            <execution>
+                <phase>package</phase>
+                <goals>
+                        <goal>shade</goal>
+                </goals>
+                 <configuration>
+	              <transformers>
+	                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+	                  <mainClass>com.test.api.api_main</mainClass>
+	                </transformer>
+	              </transformers>
+	            </configuration>   
+            </execution>
+        </executions>
+     </plugin>
+		
+	</plugins>
+  </build>
+  
+  	<dependencies>
+  	
+  		<dependency>
+  			<groupId>org.testng</groupId>
+  			<artifactId>testng</artifactId>
+  			<version>6.13.1</version>
+  			<!--  <scope>test</scope>-->
+  		</dependency>
+
+  		<dependency>
+  			<groupId>org.apache.maven.reporting</groupId>
+    		<artifactId>maven-reporting-api</artifactId>
+   			<version>2.2.1</version>
+  			<!--  <scope>test</scope> -->
+  			<exclusions>
+  			   <exclusion>
+                    <groupId>org.testng</groupId>
+                    <artifactId>testng</artifactId>
+               </exclusion>
+            </exclusions>
+  		</dependency>
+  		
+  		<!-- 依赖Guice -->
+  		<dependency>
+    		<groupId>com.google.inject</groupId>
+    		<artifactId>guice</artifactId>
+    		<version>4.2.0</version>
+    		<!--  <scope>test</scope> -->
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.uncommons/reportng -->
+		<dependency>
+		    <groupId>org.uncommons</groupId>
+		    <artifactId>reportng</artifactId>
+		    <version>1.1.4</version>
+		   <!--  <scope>test</scope> -->
+		</dependency>
+				
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+		<dependency>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-surefire-plugin</artifactId>
+		    <version>2.21.0</version>
+		    <type>maven-plugin</type>
+		    <exclusions>
+		    	<exclusion>
+		    		<groupId>org.slf4j</groupId>
+		    		<artifactId>slf4j-api</artifactId>
+		    	</exclusion>
+		    	<exclusion>
+		    		<groupId>org.slf4j</groupId>
+		    		<artifactId>slf4j-nop</artifactId>
+		    	</exclusion>
+		    	<exclusion>
+		    		<groupId>org.slf4j</groupId>
+		    		<artifactId>slf4j-jdk14</artifactId>
+		    	</exclusion>
+		    </exclusions>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.beust/jcommander -->
+		<dependency>
+		    <groupId>com.beust</groupId>
+		    <artifactId>jcommander</artifactId>
+		    <version>1.72</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl -->
+		<dependency>
+		    <groupId>net.sourceforge.jexcelapi</groupId>
+		    <artifactId>jxl</artifactId>
+		    <version>2.6.12</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>3.17</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>3.17</version>
+		</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20180130</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.skyscreamer/jsonassert -->
+		<dependency>
+		    <groupId>org.skyscreamer</groupId>
+		    <artifactId>jsonassert</artifactId>
+		    <version>1.5.0</version>
+		   <!--  <scope>test</scope> -->
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->				
+			<dependency>
+			    <groupId>org.slf4j</groupId>
+			    <artifactId>slf4j-api</artifactId>
+			    <version>1.7.25</version>
+			</dependency>
+			
+			
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-simple</artifactId>
+		    <version>1.7.25</version>
+		    <!--  <scope>test</scope> -->
+		    <exclusions>
+		    	<exclusion>
+		    		<groupId>org.slf4j</groupId>
+		    		<artifactId>slf4j-api</artifactId>
+		    	</exclusion>
+		    </exclusions>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-io -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>1.3.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>rest-assured</artifactId>
+		    <version>3.0.7</version>
+		   <!--  <scope>test</scope> -->
+		</dependency>
+				
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
+		    <version>5.0.3.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.java-websocket</groupId>
+		  <artifactId>Java-WebSocket</artifactId>
+		  <version>1.3.9</version>
+		</dependency>	
+		
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>net.sf.json-lib</groupId>
+		    <artifactId>json-lib</artifactId>
+		    <version>2.4</version>
+		    <classifier>jdk15</classifier>
+		</dependency>
+		
+		<dependency>
+		    <groupId>commons-beanutils</groupId>
+		    <artifactId>commons-beanutils</artifactId>
+		    <version>1.9.3</version>
+		</dependency>
+		
+		
+		<dependency>
+		    <groupId>commons-collections</groupId>
+		    <artifactId>commons-collections</artifactId>
+		    <version>3.2.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>commons-lang</groupId>
+		    <artifactId>commons-lang</artifactId>
+		    <version>2.6</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>1.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>net.sf.ezmorph</groupId>
+		    <artifactId>ezmorph</artifactId>
+		    <version>1.0.6</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.11</version>
+		</dependency>
+										  		
+  	</dependencies>
+
+  	
+</project>

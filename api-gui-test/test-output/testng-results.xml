@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="3085" started-at="2018-04-12T07:19:18Z" finished-at="2018-04-12T07:19:21Z">
+    <groups>
+    </groups>
+    <test name="Test_interfaceGuiTest" duration-ms="3085" started-at="2018-04-12T07:19:18Z" finished-at="2018-04-12T07:19:21Z">
+      <class name="com.test.api.interfaceGuiTest">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:com.test.api.interfaceGuiTest@1c36524]" test-instance-name="API Test" name="setup" is-config="true" duration-ms="751" started-at="2018-04-12T15:19:18Z" finished-at="2018-04-12T15:19:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[D:/java_workspace/httpAPITest/workbook.xlsx]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method name="api_test" test-instance-name="API Test" signature="api_test(java.lang.String, java.lang.String)[pri:0, instance:com.test.api.interfaceGuiTest@1c36524]" status="PASS" duration-ms="2267" finished-at="2018-04-12T15:19:21Z" started-at="2018-04-12T15:19:19Z" data-provider="WorkBookData" description="ReqGenTest">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[omiss_1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- api_test -->
+        <test-method name="api_test" test-instance-name="API Test" signature="api_test(java.lang.String, java.lang.String)[pri:0, instance:com.test.api.interfaceGuiTest@1c36524]" status="PASS" duration-ms="27" finished-at="2018-04-12T15:19:21Z" started-at="2018-04-12T15:19:21Z" data-provider="WorkBookData" description="ReqGenTest">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[login]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- api_test -->
+        <test-method status="PASS" signature="testProvider(org.testng.ITestContext)[pri:0, instance:com.test.api.interfaceGuiTest@1c36524]" test-instance-name="API Test" name="testProvider" duration-ms="1" started-at="2018-04-12T15:19:21Z" finished-at="2018-04-12T15:19:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@170140a]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testProvider -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.test.api.interfaceGuiTest@1c36524]" test-instance-name="API Test" name="teardown" is-config="true" duration-ms="5" started-at="2018-04-12T15:19:21Z" finished-at="2018-04-12T15:19:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.test.api.interfaceGuiTest -->
+    </test> <!-- Test_interfaceGuiTest -->
+  </suite> <!-- Suite -->
+</testng-results>

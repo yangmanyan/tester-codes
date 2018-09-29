@@ -1,0 +1,144 @@
+package com.qa.test;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Set;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.testng.annotations.AfterTest;
+
+public class seleniumTestDemo {
+  WebDriver wb;
+  @Test
+  public void f() throws InterruptedException, UnsupportedEncodingException {
+	  System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe"); 
+	  wb = new ChromeDriver();
+	  wb.get("http://caipiao6.stg3.1768.com");
+	  Thread.sleep(1000);
+	  
+	  Alert alert = wb.switchTo().alert();
+	  alert.dismiss();
+	  Thread.sleep(5000);
+      //alert.accept();  
+	  wb.findElement(By.id("caipiao_li")).click(); //点击 我的彩票 进入登录页面
+
+	  //1、获得当前的句柄
+	  String hd=wb.getWindowHandle();
+	  //2、获得所有的句柄
+	  Set<String> hds=wb.getWindowHandles();
+	  String h1=null;
+	  //3、切换句柄
+	  for(String h:hds){
+		  if(!h.equals(hd)){
+			  h1=h;
+			  break;
+		   }         
+	  }	  
+	  wb.switchTo().window(h1);
+	  
+	  
+	  Thread.sleep(5000);	 
+	  wb.findElement(By.xpath("//li[@class='top_txz current tab-title' or @class='top_txz tab-title' or @class='top_txz tab-title current']")).click();	 
+	  
+	  wb.findElement(By.xpath("//*[@id='id_pawform']/div[1]/input")).clear();	
+	  wb.findElement(By.id("txzpwd")).clear();
+	  wb.findElement(By.xpath("//*[@id='id_pawform']/div[1]/input")).sendKeys("18721042898");
+	  wb.findElement(By.id("txzpwd")).sendKeys("a578219");
+	  wb.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/span")).click();
+	  
+	  // 进入账户中心页，找到提现，打开提现页面
+	  Alert alert1 = wb.switchTo().alert();
+	  alert1.dismiss();
+	  
+	  Thread.sleep(1000);
+	  
+
+		  
+		  wb.findElement(By.xpath("/html/body/div[4]/div[1]/div/div[2]/ul/li[2]/ul/li[3]/a")).click(); 
+	   int i;
+	   for(i=0;i<=50;i++) {	  
+		  Thread.sleep(20000);
+		  
+		  //设置提现相关数据
+		  wb.findElement(By.id("pay_amount")).sendKeys("1");
+		  wb.findElement(By.xpath("//*[@id=\"myform\"]/dl[2]/dd[2]/div/div[1]/input")).click();
+		  wb.findElement(By.id("pay_password")).sendKeys("123456");
+		  wb.findElement(By.id("submit_Buttom")).click();
+		  
+		  Thread.sleep(1000);
+		  wb.findElement(By.xpath("/html/body/div[4]/div[2]/div[2]/div/div/div/div/dl/dd/p[5]/a[1]")).click();		  
+	  }
+	  
+	  
+	  
+	  
+	 //下面为所有购彩流程   
+	/*  Alert alert1 = wb.switchTo().alert();
+	  alert1.dismiss();
+	  Thread.sleep(1000);
+	  wb.findElement(By.xpath("/html/body/div[6]/div[1]/div[1]/div/ul/li[1]/dl/dd[1]/a")).click();
+	 
+	  //1、获得当前的句柄
+	  String hd=wb.getWindowHandle();
+	  //2、获得所有的句柄
+	  Set<String> hds=wb.getWindowHandles();
+	  String h1=null;
+	  //3、切换句柄
+	  for(String h:hds){
+		  if(!h.equals(hd)){
+			  h1=h;
+			  break;
+		   }         
+	  }	  
+	  wb.switchTo().window(h1);
+	  
+	  Thread.sleep(1000);
+	  Alert alert2 = wb.switchTo().alert();
+	  alert2.dismiss();
+	  //Thread.sleep(1000);
+	  
+	  wb.findElement(By.id("rand_one")).click();
+	  wb.findElement(By.id("daigou_buy_btn")).click();
+	  
+	  
+	  Thread.sleep(100);
+	  wb.findElement(By.id("cjzf")).click();
+	  wb.findElement(By.id("event-topay")).click();
+	  Thread.sleep(1000);
+	 // WebElement  false_class = wb.findElement(By.xpath("/html/body/div[4]/div/div[1]/div/div[1]/div[2]/strong[1]"));
+	  
+	  String content = "恭喜您，钻石购买成功！";
+	  try {  
+	       //wb.findElement(By.xpath("//*[contains(.,'" + content + "')]")).getText();  
+		  wb.findElement(By.xpath("/html/body/div[4]/div/div[1]/div/div[1]/div[2]/strong[1]"));
+	      System.out.println(content + " is appeard!");  
+	      
+	  } catch (NoSuchElementException e) {  
+	       
+	       System.out.println("'" + content + "' doesn't exist!");
+	  }  
+	   
+	  
+	  
+	  System.out.println("The testing page title is: " + wb.getTitle()); 
+	  */
+  }
+  
+  @BeforeTest
+  public void beforeTest() {
+	  	 
+  } 
+
+  @AfterTest
+  public void afterTest() {
+	  //wb.quit();
+  }
+
+}

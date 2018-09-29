@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.python.1768</groupId>
+  <artifactId>aescode</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+ 
+
+  <properties>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+<build>
+  <defaultGoal>compile</defaultGoal>
+	<pluginManagement>
+	<plugins> 
+	<plugin> 
+	<groupId>org.apache.maven.plugins</groupId> 
+	<artifactId>maven-compiler-plugin</artifactId> 
+	<configuration> 
+	<source>1.7</source> 
+	<target>1.7</target> 
+	</configuration> 
+	</plugin>
+	</plugins>
+	</pluginManagement>
+  
+	<plugins>
+		<!--<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>2.21.0</version>
+			<configuration>
+			<suiteXmlFiles>
+			<suiteXmlFile>
+				src/test/resources/${xmlFileName}
+			</suiteXmlFile>
+			</suiteXmlFiles>
+			</configuration>
+		</plugin>-->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>2.21.0</version>
+			<configuration>
+				<suiteXmlFiles>
+					<suiteXmlFile>
+						src/main/resources/${xmlFileName}
+					</suiteXmlFile>
+				</suiteXmlFiles>
+				<properties>
+					<property>
+					<name>usedefaultlisteners</name>
+					<value>false</value>
+					</property>
+					
+					<property>
+					<name>listener</name>
+					<value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+					</property>
+				</properties>
+				<workingDirectory>target/</workingDirectory>
+				<forkMode>always</forkMode>
+				<!-- 解决报告中中文乱码 -->
+				<argLine>-Dfile.encoding=UTF-8</argLine>
+			</configuration>
+		</plugin>
+		
+		<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.1.0</version>
+        <!-- <configuration>
+        	<transformers>
+                  <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                   <manifestEntries>
+                            <Main-Class>com.test.api.interfaceGuiTest</Main-Class>            
+                   </manifestEntries>
+                 
+                 <mainClass>com.test.api.interfaceGuiTest</mainClass>
+                 <mainClass>org.testng.TestNG</mainClass>
+                 </transformer>
+            </transformers>
+        </configuration> -->
+        <executions>
+            <execution>
+                <phase>package</phase>
+                <goals>
+                        <goal>shade</goal>
+                </goals>
+                 <configuration>
+	              <transformers>
+	                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+	                  <mainClass>com.qa.api.pythonUse</mainClass>
+	                </transformer>
+	              </transformers>
+	            </configuration>   
+            </execution>
+        </executions>
+     </plugin>
+		
+	</plugins>
+  </build>
+
+<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-io -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>1.3.2</version>
+		</dependency>		
+		<dependency>
+		    <groupId>org.apache.directory.studio</groupId>
+		    <artifactId>org.apache.commons.codec</artifactId>
+		    <version>1.8</version>
+		</dependency>		
+</dependencies>
+</project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test_interfaceGuiTest"
+           tests="3"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="1.871">
+  <properties />
+  
+  
+            <testcase name="API Test" time="0.002" classname="com.test.api.interfaceGuiTest (API Test)" />
+                <testcase name="API Test" time="1.825" classname="com.test.api.interfaceGuiTest (API Test)" />
+                <testcase name="API Test" time="0.044" classname="com.test.api.interfaceGuiTest (API Test)" />
+      
+</testsuite>

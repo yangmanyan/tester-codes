@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <parameter name="workBook" value="D:/java_workspace/httpAPITest/interface_gui_test_case.xlsx"></parameter>
+  <test thread-count="5" name="Test_passport">
+    <classes>
+      <!--<class name="findyou.testcase.test"/>-->
+     <!--  <class name="findyou.testcase.test1"/> -->
+      <class name="findyou.testcase.interface_gui_test"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

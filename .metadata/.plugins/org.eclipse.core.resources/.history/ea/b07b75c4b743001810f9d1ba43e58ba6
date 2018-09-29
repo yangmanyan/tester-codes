@@ -1,0 +1,80 @@
+package com.qa.test;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeTest;
+
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.testng.annotations.AfterTest;
+
+public class seleniumTestDemo {
+  WebDriver wb;
+  @Test
+  public void f() throws InterruptedException {
+	  System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe"); 
+	  wb = new ChromeDriver();
+	  wb.get("http://caipiao.1768.com");
+	  wb.findElement(By.id("loginId1")).click();
+	  wb.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/ul[1]/li[1]")).click();
+	  wb.findElement(By.xpath("//*[@id='id_pawform']/div[1]/input")).sendKeys("18721042898");
+	  wb.findElement(By.id("txzpwd")).sendKeys("yangxuan40319830");
+	  wb.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/span")).click();	
+	  Thread.sleep(100);
+	  wb.findElement(By.xpath("/html/body/div[6]/div[1]/div[1]/div/ul/li[1]/dl/dd[1]/a")).click();
+	  
+	  //1、获得当前的句柄
+	  String hd=wb.getWindowHandle();
+	  //2、获得所有的句柄
+	  Set<String> hds=wb.getWindowHandles();
+	  String h1=null;
+	  //3、切换句柄
+	  for(String h:hds){
+		  if(!h.equals(hd)){
+			  h1=h;
+			  break;
+		   }         
+	  }	  
+	  wb.switchTo().window(h1);
+	  
+	  wb.findElement(By.id("rand_one")).click();
+	  wb.findElement(By.id("daigou_buy_btn")).click();
+	  
+	  
+	  Thread.sleep(100);
+	  wb.findElement(By.id("cjzf")).click();
+	  wb.findElement(By.id("event-topay")).click();
+	  Thread.sleep(1000);
+	 // WebElement  false_class = wb.findElement(By.xpath("/html/body/div[4]/div/div[1]/div/div[1]/div[2]/strong[1]"));
+	  
+	  String content = "恭喜您，钻石购买成功！";
+	  try {  
+	       //wb.findElement(By.xpath("//*[contains(.,'" + content + "')]")).getText();  
+		  wb.findElement(By.xpath("/html/body/div[4]/div/div[1]/div/div[1]/div[2]/strong[1]"));
+	      System.out.println(content + " is appeard!");  
+	      
+	  } catch (NoSuchElementException e) {  
+	       
+	       System.out.println("'" + content + "' doesn't exist!");
+	  }  
+	   
+	  
+	  
+	  System.out.println("The testing page title is: " + wb.getTitle()); 
+  }
+  
+  @BeforeTest
+  public void beforeTest() {
+	  	 
+  } 
+
+  @AfterTest
+  public void afterTest() {
+	  //wb.quit();
+  }
+
+}

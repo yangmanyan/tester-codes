@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" allow-return-values="true">
+  <parameter name="workBook" value="D:/java_workspace/httpAPITest/workbook.xlsx"/>
+  <test thread-count="5" name="Test_interfaceGuiTest(failed)">
+    <classes>
+      <class name="com.test.api.interfaceGuiTest">
+        <methods>
+          <include name="teardown"/>
+          <include name="api_test" invocation-numbers="0 1"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.test.api.interfaceGuiTest -->
+    </classes>
+  </test> <!-- Test_interfaceGuiTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

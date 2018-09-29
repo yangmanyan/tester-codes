@@ -1,0 +1,117 @@
+package com.qa.utils;
+
+import org.apache.poi.POIXMLDocument;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.skyscreamer.jsonassert.JSONCompareResult;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PushbackInputStream;
+
+public class DataWriter {
+
+	public static void writeData(XSSFSheet outputSheet, JSONCompareResult result, String iD, String test_case) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void writeData(XSSFSheet outputSheet) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void writeData(XSSFSheet resultSheet, String string, String iD, String test_case, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void writeData(XSSFSheet outputSheet, String asString, String iD, String test_case) {
+		// TODO Auto-generated method stub
+		String   filePath="D:\\test.xls";
+		try {  
+			   FileInputStream is = new FileInputStream(filePath); 
+			   
+			   
+			   //Workbook wb =getWorkbook(is);  
+			   
+			  /* if(!is.markSupported()){    
+	                  is = new PushbackInputStream(is,8);             
+	              }    
+	              if (POIFSFileSystem.hasPOIFSHeader(is)) {       //Excel2003及以下版本    
+	                  wb = new HSSFWorkbook(is);    
+	              }else if (POIXMLDocument.hasOOXMLHeader(is)) {      //Excel2007及以上版本    */
+	                  wb = new XSSFWorkbook(is);      
+	             /* }else{    
+	                  throw new IllegalArgumentException("你的Excel版本目前poi无法解析！");                      
+	              }*/
+			   
+			   
+			   System.out.println("aaa");  
+			   XSSFSheet sheet1 = outputSheet;//wb.getSheetAt(0);  
+			   System.out.println(sheet1.getLastRowNum());  
+			   XSSFRow row = sheet1.createRow(sheet1.getLastRowNum() + 1);  
+			   row.setHeightInPoints((short) 25);  
+			   // 给这一行赋值  
+			   row.createCell(0).setCellValue(iD);  
+			   row.createCell(1).setCellValue(test_case);  
+			   row.createCell(2).setCellValue(asString);
+			   FileOutputStream os = new FileOutputStream(filePath);  
+			   wb.write(os);  
+			   is.close();  
+			   os.close();  
+			  } catch (Exception e) {  
+			   e.printStackTrace();  
+			  }  
+			 }  
+		
+		
+		
+		
+		
+		 try {
+	           // XSSFWorkbook wb = new XSSFWorkbook();
+	            for(int sheetnum=0;sheetnum<map.size();sheetnum++){
+	                XSSFSheet sheet = outputSheet;
+	                //List<String[]> list = map.get(sheetnum);
+	                for(int i=0;i<list.size();i++){
+	                    XSSFRow row = sheet.createRow(i);
+	                    String[] str = list.get(i);
+	                    for(int j=0;j<str.length;j++){
+	                        XSSFCell cell = row.createCell(j);
+	                        cell.setCellValue(str[j]);
+	                    }
+	                }
+	            }
+	            FileOutputStream outputStream = new FileOutputStream(fileName);
+	            wb.write(outputStream);
+	            outputStream.close();
+	        } catch (FileNotFoundException e) {
+	            // TODO 自动生成的 catch 块
+	            e.printStackTrace();
+	        } catch (IOException e) {
+	            // TODO 自动生成的 catch 块
+	            e.printStackTrace();
+	        }
+		
+	}
+
+	public static void writeData(XSSFSheet comparsionSheet, String string, String iD, String iD2, String test_case) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void writeData(XSSFSheet resultSheet, double totalcase, double failedcase, String startTime,
+			String endTime) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

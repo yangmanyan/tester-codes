@@ -1,0 +1,179 @@
+package com.qa.utils;
+
+//import org.apache.poi.POIXMLDocument;
+//import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+//import org.apache.poi.poifs.filesystem.POIFSFileSystem;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.skyscreamer.jsonassert.JSONCompareResult;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+//import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow; 
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.Workbook;
+//import java.io.FileInputStream;
+//import java.io.FileNotFoundException;
+//import java.io.FileOutputStream;
+//import java.io.PushbackInputStream;
+
+public class DataWriter {
+
+	public static void writeData(XSSFSheet outputSheet, JSONCompareResult result, String iD, String test_case) {
+		// TODO Auto-generated method stub
+		try {
+			
+			   //System.out.println("aaa");  
+			   XSSFSheet sheet1 = outputSheet;//wb.getSheetAt(0);  
+			   //System.out.println(outputSheet.getLastRowNum());  
+			   XSSFRow row1 = outputSheet.createRow(outputSheet.getLastRowNum() + 1);  
+			   row1.setHeightInPoints((short) 25);  
+			   // 给这一行赋值  
+			   row1.createCell(0).setCellValue(iD);  
+			   row1.createCell(1).setCellValue(test_case); 
+			   row1.createCell(2).setCellValue("Actual");
+			   row1.createCell(3).setCellValue(result.getActual().toString());
+			   
+			   XSSFRow row2 = sheet1.createRow(outputSheet.getLastRowNum() + 2); 
+			   row2.createCell(2).setCellValue("Expect");
+			   row2.createCell(3).setCellValue(result.getExpected().toString());
+			   //FileOutputStream os = new FileOutputStream(filePath);  
+			   //wb.write(os);  
+			   //is.close();  
+			  // os.close();  
+			  } catch (Exception e) {  
+			   e.printStackTrace();  
+			  } 
+		
+		
+	}
+
+	public static void writeData(XSSFSheet outputSheet) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void writeData(XSSFSheet resultSheet, String result, String iD, String test_case, int i) {
+		// TODO Auto-generated method stub
+		try {
+			
+			 Workbook wb = new XSSFWorkbook();
+			 
+			// Row ztRow = sheet.createRow((short)0);   
+	           // Cell ztCell = ztRow.createCell(0);   
+	            //ztCell.setCellValue("中国");   
+	            // 创建单元格样式对象   
+	            XSSFCellStyle ztStyle = (XSSFCellStyle) wb.createCellStyle();   
+	            // 创建字体对象   
+	            Font ztFont = wb.createFont();   
+	            //ztFont.setItalic(true);                     // 设置字体为斜体字   
+	            ztFont.setColor(Font.COLOR_RED);            // 将字体设置为“红色”   
+	            //ztFont.setFontHeightInPoints((short)22);    // 将字体大小设置为18px   
+	            //ztFont.setFontName("华文行楷");             // 将“华文行楷”字体应用到当前单元格上   
+	            //ztFont.setUnderline(Font.U_DOUBLE);         // 添加（Font.U_SINGLE单条下划线/Font.U_DOUBLE双条下划线）   
+//	          ztFont.setStrikeout(true);                  // 是否添加删除线   
+	            ztStyle.setFont(ztFont);                    // 将字体应用到样式上面   
+	           // ztCell.setCellStyle(ztStyle);  
+			
+			   XSSFRow row = resultSheet.createRow(resultSheet.getLastRowNum() + 1);  
+			   row.setHeightInPoints((short) 25);  
+			   // 给这一行赋值  
+			   row.createCell(0).setCellValue(iD);  
+			   row.createCell(1).setCellValue(test_case); 
+			   Cell color_cell = row.createCell(2);
+			   if(result == "false")				   
+			       color_cell.setCellValue("Failed");
+			   else if ("true")
+				   color_cell.setCellValue("Passed");
+			   color_cell.setCellStyle(ztStyle);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	public static void writeData(XSSFSheet outputSheet, String asString, String iD, String test_case) {
+		// TODO Auto-generated method stub
+		
+		try {  
+			  // FileInputStream is = new FileInputStream(filePath); 
+			   
+			   
+			   //Workbook wb =getWorkbook(is);  
+			   
+			  /* if(!is.markSupported()){    
+	                  is = new PushbackInputStream(is,8);             
+	              }    
+	              if (POIFSFileSystem.hasPOIFSHeader(is)) {       //Excel2003及以下版本    
+	                  wb = new HSSFWorkbook(is);    
+	              }else if (POIXMLDocument.hasOOXMLHeader(is)) {      //Excel2007及以上版本    */
+	                  //wb = new XSSFWorkbook(is);      
+	             /* }else{    
+	                  throw new IllegalArgumentException("你的Excel版本目前poi无法解析！");                      
+	              }*/
+			   
+			   
+			   System.out.println("aaa");  
+			   XSSFSheet sheet1 = outputSheet;//wb.getSheetAt(0);  
+			   System.out.println(sheet1.getLastRowNum());  
+			   XSSFRow row = sheet1.createRow(sheet1.getLastRowNum() + 1);  
+			   row.setHeightInPoints((short) 25);  
+			   // 给这一行赋值  
+			   row.createCell(0).setCellValue(iD);  
+			   row.createCell(1).setCellValue(test_case);  
+			   row.createCell(2).setCellValue(asString);
+			   //FileOutputStream os = new FileOutputStream(filePath);  
+			   //wb.write(os);  
+			   //is.close();  
+			  // os.close();  
+			  } catch (Exception e) {  
+			   e.printStackTrace();  
+			  }  
+			  
+		
+		
+		
+		
+		
+		/* try {
+	           // XSSFWorkbook wb = new XSSFWorkbook();
+	            for(int sheetnum=0;sheetnum<map.size();sheetnum++){
+	                XSSFSheet sheet = outputSheet;
+	                //List<String[]> list = map.get(sheetnum);
+	                for(int i=0;i<list.size();i++){
+	                    XSSFRow row = sheet.createRow(i);
+	                    String[] str = list.get(i);
+	                    for(int j=0;j<str.length;j++){
+	                        XSSFCell cell = row.createCell(j);
+	                        cell.setCellValue(str[j]);
+	                    }
+	                }
+	            }
+	            FileOutputStream outputStream = new FileOutputStream(fileName);
+	            wb.write(outputStream);
+	            outputStream.close();
+	        } catch (FileNotFoundException e) {
+	            // TODO 自动生成的 catch 块
+	            e.printStackTrace();
+	        } catch (IOException e) {
+	            // TODO 自动生成的 catch 块
+	            e.printStackTrace();
+	        }*/
+		
+	}
+
+	public static void writeData(XSSFSheet comparsionSheet, String string, String iD, String iD2, String test_case) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void writeData(XSSFSheet resultSheet, double totalcase, double failedcase, String startTime,
+			String endTime) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

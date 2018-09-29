@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;some_ep_01.java&apos; to &apos;maven-testng/src/main/java/com.testng.test.maven_testng&apos;&#x0D;&#x0A;- Original project: &apos;api-gui-test&apos;&#x0D;&#x0A;- Destination element: &apos;maven-testng/src/main/java/com.testng.test.maven_testng&apos;&#x0D;&#x0A;- Original element: &apos;com.test.api.some_ep_01.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=maven-testng/src\/main\/java&lt;com.testng.test.maven_testng" element1="/src\/main\/java&lt;com.test.api{some_ep_01.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1523514157058" units="1" version="1.0"/>
+</session>

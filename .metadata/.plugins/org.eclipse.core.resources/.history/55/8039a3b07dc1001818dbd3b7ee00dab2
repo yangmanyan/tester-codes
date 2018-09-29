@@ -1,0 +1,13 @@
+package com.qa.utils;
+
+public class pythonUse {
+
+	public static void main(String[] args) throws Exception {
+		//for(int i = 0; i < args.length; i++){		
+			System.out.print(RSACode.encryptBASE64(RSACode.encryptByPublicKey(args[0],args[1])));
+			
+        //}
+
+	}
+
+}

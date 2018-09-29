@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="-1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="workBook" value="D:/java_workspace/httpAPITest/interface_gui_test_case.xlsx"/>
+  <test name="Test_passport(failed)">
+    <classes>
+      <class name="findyou.testcase.interface_gui_test">
+        <methods>
+          <include name="api_test" invocation-numbers="0"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- findyou.testcase.interface_gui_test -->
+    </classes>
+  </test> <!-- Test_passport(failed) -->
+</suite> <!-- Failed suite [Suite] -->
